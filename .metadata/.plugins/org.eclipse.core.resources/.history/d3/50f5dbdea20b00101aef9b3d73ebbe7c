@@ -1,0 +1,11 @@
+spring:
+  application:
+    name:  demo
+  datasorce:
+	url: jdbc:oracle:thin:@112.221.156.34:12345x:e
+	username: KH25_JDK
+	password: KH1234
+	driver-class-name: oracle.jdbc.driver.OracleDriver
+  
+server:
+  port:  80

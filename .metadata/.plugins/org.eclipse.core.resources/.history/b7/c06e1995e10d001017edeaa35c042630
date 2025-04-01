@@ -1,0 +1,5 @@
+package com.kh.start.configuration;
+
+public class SecurityConfigure {
+
+}

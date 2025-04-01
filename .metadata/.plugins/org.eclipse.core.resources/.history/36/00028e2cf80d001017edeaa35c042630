@@ -1,0 +1,16 @@
+package com.kh.start.member.model.vo;
+
+import lombok.Value;
+
+// Value Object
+// V     O 
+
+@Value
+public class Member {
+	
+	private Long memberNo;
+	private String memberId;
+	private String memberPw;
+	private String memberName;
+	private String role;
+}

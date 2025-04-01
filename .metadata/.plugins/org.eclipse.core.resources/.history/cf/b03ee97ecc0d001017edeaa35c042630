@@ -1,0 +1,28 @@
+package com.kh.test;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class BeanConfig {
+	/*
+	 * 구닥다리 방법
+	 * root-context.xml
+	 * 
+	 * <bean class="풀클래스명"
+	 * 	<property 필드값 />
+	 * </bean>
+	 * ---------------------------------
+	 * 
+	 * 
+	 */
+	
+	@Bean
+	public StudyBean study() {
+		return new StudyBean();
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,5 @@
+package com.example.demo.busan.model.dto;
+
+public class Comment {
+
+}

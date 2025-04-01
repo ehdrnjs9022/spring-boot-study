@@ -1,0 +1,34 @@
+package com.kh.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TestApplication {
+
+	/*
+	 * AutoConfiguration(자동 구성)
+	 * 
+	 * 스트링부트의 핵심 기능
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(TestApplication.class, args);
+	}
+
+	
+	
+	
+	
+	
+	
+}

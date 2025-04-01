@@ -6,6 +6,9 @@ spring:
     username:  KH25_JDK
     password:  KH1234
     driver-Class-name: oracle.jdbc.driver.OracleDriver
-
+  profiles:
+    include:  private
+    
 server:
   port:  80
+

@@ -2,6 +2,9 @@ package com.kh.start.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -39,10 +42,24 @@ public class SecurityConfigure {
 		
 		return httpSecurity.formLogin(AbstractHttpConfigurer::disable)
 							.httpBasic(AbstractHttpConfigurer::disable)
-							.csrf(AbstractHttpConfigurer::disable).build();
+							.csrf(AbstractHttpConfigurer::disable)
+							.authorizeHttpRequests(request -> {
+								request.requestMatchers(HttpMethod.POST,"/auth/login","/members").permitAll();
+								request.requestMatchers("/admin/**").hasRole("ADMIN");
+								request.requestMatchers(HttpMethod.PUT, "/members").authenticated();
+							})
+							.build();
 		
 		
 	}
+	
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authconfig) throws Exception {
+		return authconfig.getAuthenticationManager();
+	}
+	
+	
+	
 	
 	
 	@Bean
@@ -50,6 +67,23 @@ public class SecurityConfigure {
 		return new BCryptPasswordEncoder();
 	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

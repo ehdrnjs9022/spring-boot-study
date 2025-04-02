@@ -1,7 +1,0 @@
-package com.kh.start.member.model.service;
-
-public class MemberService {
-
-	void signUp(MemberDTO member);
-	
-}

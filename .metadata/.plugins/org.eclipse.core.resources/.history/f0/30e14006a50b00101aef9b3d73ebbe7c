@@ -1,5 +1,0 @@
-package com.example.demo.busan.model.dao;
-
-public interface CommentMapper {
-
-}

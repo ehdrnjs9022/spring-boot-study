@@ -1,9 +1,0 @@
-package com.kh.start.member.controller;
-
-public class MemberController {
-	
-	//  회원가입 자원요청
-	// 아이디/비밀번호/이름 받아가지고
-	// 서비스 넘겨요
-	
-}

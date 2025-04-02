@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.example.demo.busan.model.service.BusanService"/>
-    <fullyQualifiedTypeName name="com.example.demo.busan.model.dao.CommentMapper"/>
-    <fullyQualifiedTypeName name="javax.xml.stream.events.Comment"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.example.demo.busan.model.dto.Comment"/>
-</qualifiedTypeNameHistroy>

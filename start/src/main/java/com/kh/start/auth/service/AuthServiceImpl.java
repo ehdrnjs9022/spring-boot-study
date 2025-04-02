@@ -74,7 +74,8 @@ public class AuthServiceImpl implements AuthService{
 	
 		// 해시코드가 다르면 다른 객체다 O ==> 같은값으로 해시돌리면 항상 결과가 같음
 		// 해시코드가 같으면 같은 객체다 X
-		Map<String,String> loginResponse = tokenService.generateToken(user.getUsername());
+		Map<String,String> loginResponse = tokenService.generateToken(user.getUsername(),
+																	  user.getMemberNo());
 		
 		loginResponse.put("memberId",user.getUsername() );
 		loginResponse.put("memberName", user.getMemberName());

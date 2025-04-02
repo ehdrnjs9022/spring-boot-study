@@ -1,6 +1,10 @@
 package com.kh.start.member.controller;
 
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,21 +69,21 @@ public class MemberController {
 	
 	
 	
-	
 	// 비밀번호 변경 기능 구현
 	@PutMapping
 	public ResponseEntity<?> changePassword(@RequestBody @Valid ChangePasswordDTO passwordEntity ){
-		log.info("비밀번호 넘어오나요 : {} ", passwordEntity);
-		
-		
-		
-		
-		
-		return null;
+		//log.info("비밀번호 넘어오나요 : {} ", passwordEntity);
+		memberService.changePassword(passwordEntity);
+		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 	
 	
-	
+	@DeleteMapping
+	public ResponseEntity<?> deleteByPassword(@RequestBody Map<String,String> request){
+		//log.info("오나 {} ", request);
+		memberService.deleteByPassword(request.get("request"));
+		return ResponseEntity.ok("오케이");
+	}
 	
 	
 	

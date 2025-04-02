@@ -1,9 +1,0 @@
-spring:  
-  application:
-    name:  start
-  datasource:  
-    url:  jdbc:oracle:thin:@112.221.156.34:12345:XE
-    username:  KH25_JDK
-    password:  KH1234
-    driver-Class-name: oracle.jdbc.driver.OracleDriver
-

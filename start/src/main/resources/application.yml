@@ -8,16 +8,25 @@ spring:
     driver-Class-name: oracle.jdbc.driver.OracleDriver
   profiles:
     include:  private
+  mvc:
+    static-path-pattern: /uploads/**
+web:
+  resources:
+  static-location:  file:uploads/
     
 server:
   port:  80
+servlet:
+  multipart:
+  max-file-size :  100MB
+  max-requset-size :  100MB
 
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    jdbc-type-for-null: NULL
+    jdbc-type-for-null: VARCHAR
   mapper-locations:  classpath:mapper/*.xml
-  
+  type-aliases-package: com.kh.start.board.model.vo 
 
 logging:
   level:

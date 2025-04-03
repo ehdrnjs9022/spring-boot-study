@@ -41,7 +41,7 @@ public class JwtFilter extends OncePerRequestFilter {
 		
 		String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
 		
-		log.info("넘어오나 {} " , authorization);
+		//log.info("넘어오나 {} " , authorization);
 		
 		if(authorization == null || !authorization.startsWith("Bearer")) {
 			filterChain.doFilter(request, response);
@@ -50,7 +50,7 @@ public class JwtFilter extends OncePerRequestFilter {
 		
 		String token = authorization.substring(7);
 		//String token = authorization.split(" ")[1]; 두가지 방식
-		log.info("토큰값 : {}  ", token);
+		//log.info("토큰값 : {}  ", token);
 		
 		// 1. 서버에서 관리하는 비밀키로 만들어진 것이 맞는가?
 		// 2. 유효기간이 안지났는가?

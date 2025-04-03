@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -18,19 +19,40 @@ import lombok.extern.slf4j.Slf4j;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
+	
+	private ResponseEntity<?> makeResponseEntity(RuntimeException e, HttpStatus status){
+		Map<String, String> error = new HashMap();
+		error.put("error-message", e.getMessage());
+		return ResponseEntity.status(status).body(error);
+	}
+	
+	@ExceptionHandler(InvalidUserRequestException.class)
+	public ResponseEntity<?> handleInvalidUserError(InvalidUserRequestException e){
+		/*
+		 * Map<String, String> error = new HashMap(); error.put("error-message",
+		 * e.getMessage()); return
+		 * ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+		 */
+		return makeResponseEntity(e, HttpStatus.UNAUTHORIZED);
+	}
+	
 	@ExceptionHandler(MemberIdDuplicationException.class)
 	public ResponseEntity<?> handleDuplicateMemberId(MemberIdDuplicationException e){
-		Map<String, String> error = new HashMap();
-		error.put("message", e.getMessage());
-		return ResponseEntity.badRequest().body(error);
+		/*
+		 * Map<String, String> error = new HashMap(); error.put("message",
+		 * e.getMessage()); return ResponseEntity.badRequest().body(error);
+		 */
+		return makeResponseEntity(e, HttpStatus.BAD_REQUEST);
+		
 	}
 	
 	@ExceptionHandler(CustomAuthenticationException.class)
 	public  ResponseEntity<?> handleAuthenticationError(CustomAuthenticationException e){
-		Map<String,String> error = new HashMap();
-		error.put("error-message", e.getMessage());
-		return ResponseEntity.badRequest().body(error);
+		/*
+		 * Map<String,String> error = new HashMap(); error.put("error-message",
+		 * e.getMessage()); return ResponseEntity.badRequest().body(error);
+		 */
+		return makeResponseEntity(e, HttpStatus.BAD_REQUEST);
 	}
 	
 	
@@ -38,7 +60,6 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<?> handleArgumentNotValid(MethodArgumentNotValidException e){
 		
 		Map<String, String> errors = new HashMap();
-		
 		
 		/*
 		List list = e.getBindingResult().getFieldErrors();

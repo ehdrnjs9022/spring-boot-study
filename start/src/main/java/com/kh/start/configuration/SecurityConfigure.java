@@ -57,8 +57,10 @@ public class SecurityConfigure {
 							.authorizeHttpRequests(request -> {
 								request.requestMatchers(HttpMethod.POST,"/auth/login","/auth/refresh","/members").permitAll();
 								request.requestMatchers("/admin/**").hasRole("ADMIN");
-								request.requestMatchers(HttpMethod.PUT, "/members").authenticated();
-								request.requestMatchers(HttpMethod.DELETE, "/members").authenticated();
+								request.requestMatchers(HttpMethod.GET,"/uploads/**", "/boards/**", "/comments/**").permitAll();
+								request.requestMatchers(HttpMethod.PUT, "/members","/boards/**").authenticated();
+								request.requestMatchers(HttpMethod.DELETE, "/members","/boards/**").authenticated();
+								request.requestMatchers(HttpMethod.POST,"/boards","/comments").authenticated();
 							})
 							/*
 							 * sessionManagement : 세션을 어떻게 관리할것인지 지정할 수 있음

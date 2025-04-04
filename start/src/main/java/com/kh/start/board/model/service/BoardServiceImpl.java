@@ -71,7 +71,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardDTO> findAll(int pageNo) {
-		int size = 3;
+		int size = 5;
 		RowBounds rowBounds = new RowBounds(pageNo * size, size);
 		return boardmapper.findAll(rowBounds);
 		
